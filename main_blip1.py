@@ -42,7 +42,7 @@ def main():
     lr = config['parameter']['lr']
 
     sys.stderr.write('start loading model')
-    blip2_model, vis_processors, txt_processors = load_model_and_preprocess(name="blip1_feature_extractor", 
+    blip2_model, vis_processors, txt_processors = load_model_and_preprocess(name="blip_feature_extractor", 
     model_type="base", is_eval=True, device=device)
 
     train_dataset = MRI_dataset(subj, data_type, brain_type, vis_processors, txt_processors, data_dir, csv_file_path)
