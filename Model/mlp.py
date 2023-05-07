@@ -6,8 +6,8 @@ torch.manual_seed(3407)
 device = 'cuda'
 
 class MLP_model:
-    def __init__(self, channels, patch_size, dim, depth, num_classes):
-        self.image_size = (32,24)
+    def __init__(self, channels, patch_size, dim, depth, num_classes, image_size=(32,24)):
+        self.image_size = image_size
         self.channels = channels
         self.patch_size = patch_size
         self.dim = dim

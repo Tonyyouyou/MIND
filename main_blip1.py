@@ -4,7 +4,7 @@ import yaml
 import torch
 import argparse
 from Model.mlp import MLP_model
-from Train_blip1 import TrainManager_blip1
+from Train import TrainManager
 from lavis.models import load_model_and_preprocess
 from Data.dataset import MRI_dataset, train_test_split, noisy_celing_metric
 
@@ -42,14 +42,14 @@ def main():
     lr = config['parameter']['lr']
 
     sys.stderr.write('start loading model')
-    blip2_model, vis_processors, txt_processors = load_model_and_preprocess(name="blip2_feature_extractor", 
-    model_type="pretrain", is_eval=True, device=device)
+    blip2_model, vis_processors, txt_processors = load_model_and_preprocess(name="blip1_feature_extractor", 
+    model_type="base", is_eval=True, device=device)
 
     train_dataset = MRI_dataset(subj, data_type, brain_type, vis_processors, txt_processors, data_dir, csv_file_path)
     feature_size = train_dataset.mri_dim
     train_loader, eval_loader, test_loader = train_test_split(train_dataset, batch_size)
     
-    MLP_model_class = MLP_model(channels, patch_size, dim, depth, feature_size)
+    MLP_model_class = MLP_model(channels, patch_size, dim, depth, feature_size, (56,48))
     predictor = MLP_model_class.init_MLP_Mixer()
 
     nc_class = noisy_celing_metric(data_dir, subj, brain_type)

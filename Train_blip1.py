@@ -6,7 +6,7 @@ torch.manual_seed(3407)
 
 device = 'cuda'
 
-class TrainManager:
+class TrainManager_blip1:
     def __init__(self, train_left_dataloader, train_right_dataloader, test_left_dataloader, 
                  test_right_dataloader, LAVIS_model, predictor_model, metric_class):
         
@@ -101,7 +101,7 @@ class TrainManager:
 
             encoder_output = encoder.extract_features(sample, 'image')
             encoder_output = encoder_output.image_embeds
-            encoder_output = encoder_output.view(-1, 32, 32, 24)
+            encoder_output = encoder_output.view(-1, 56, 56, 48)
 
             predict_output = predictor(encoder_output)
             loss = criterion(predict_output, mri.to(device))
@@ -111,7 +111,7 @@ class TrainManager:
             total_loss += loss.item()
 
         return total_loss / count
-
+    
     def eval_MLP_image_model(self, dataloader, encoder, predictor):
         encoder.eval()
         predictor.eval()
@@ -124,7 +124,7 @@ class TrainManager:
 
                 encoder_output = encoder.extract_features(sample, 'image')
                 encoder_output = encoder_output.image_embeds
-                encoder_output = encoder_output.view(-1, 32, 32, 24)
+                encoder_output = encoder_output.view(-1, 56, 56, 48)
                 
                 predict_output = predictor(encoder_output)
 
