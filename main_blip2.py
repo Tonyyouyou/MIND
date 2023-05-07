@@ -4,7 +4,7 @@ import yaml
 import torch
 import argparse
 from Model.mlp import MLP_model
-from Train_blip1 import TrainManager_blip1
+from Train.Train_blip2 import TrainManager
 from lavis.models import load_model_and_preprocess
 from Data.dataset import MRI_dataset, train_test_split, noisy_celing_metric
 

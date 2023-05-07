@@ -6,7 +6,7 @@ torch.manual_seed(3407)
 
 device = 'cuda'
 
-class TrainManager_blip1:
+class TrainManager:
     def __init__(self, train_left_dataloader, train_right_dataloader, test_left_dataloader, 
                  test_right_dataloader, LAVIS_model, predictor_model, metric_class):
         
