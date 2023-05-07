@@ -101,6 +101,7 @@ class TrainManager:
 
             encoder_output = encoder.extract_features(sample, 'image')
             encoder_output = encoder_output.image_embeds
+            encoder_output = encoder_output[:,1:,:]
             encoder_output = encoder_output.view(-1, 56, 56, 48)
 
             predict_output = predictor(encoder_output)
@@ -124,6 +125,7 @@ class TrainManager:
 
                 encoder_output = encoder.extract_features(sample, 'image')
                 encoder_output = encoder_output.image_embeds
+                encoder_output = encoder_output[:,1:,:]
                 encoder_output = encoder_output.view(-1, 56, 56, 48)
                 
                 predict_output = predictor(encoder_output)
