@@ -101,8 +101,7 @@ class TrainManager:
 
             encoder_output = encoder.extract_features(sample, 'image')
             encoder_output = encoder_output.image_embeds
-            encoder_output = encoder_output[:,1:,:]
-            encoder_output = encoder_output.view(-1, 56, 56, 48)
+            encoder_output = encoder_output.view(-1, 197, 32, 24)
 
             predict_output = predictor(encoder_output)
             loss = criterion(predict_output, mri.to(device))
@@ -125,8 +124,7 @@ class TrainManager:
 
                 encoder_output = encoder.extract_features(sample, 'image')
                 encoder_output = encoder_output.image_embeds
-                encoder_output = encoder_output[:,1:,:]
-                encoder_output = encoder_output.view(-1, 56, 56, 48)
+                encoder_output = encoder_output.view(-1, 197, 32, 24)
                 
                 predict_output = predictor(encoder_output)
 

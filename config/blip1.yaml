@@ -1,6 +1,6 @@
 Dataset:
   subj: 1
-  batch_size: 128
+  batch_size: 64
   data_type: train
   brain_type: left
   data_dir: /content
@@ -9,8 +9,8 @@ Dataset:
   train_type: image
 
 MLP_model:
-  channels: 56
-  patch_size: 4
+  channels: 197
+  patch_size: 1
   dim: 2048
   depth: 2
 
