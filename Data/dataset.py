@@ -139,7 +139,7 @@ class MRI_test_dataset(Dataset):
 
 def train_test_split(train_dataset, batch_size, shuffle=False):
     train_size = int(0.8 * len(train_dataset))
-    eval_size = int(0.1 * len(train_dataset))
+    eval_size = int(0.18 * len(train_dataset))
     test_size = len(train_dataset) - train_size - eval_size
 
     train_data, eval_data, test_data = random_split(train_dataset, [train_size, eval_size,test_size])
