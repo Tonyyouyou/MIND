@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from mlp_mixer_pytorch import MLPMixer
-torch.manual_seed(3407)
+torch.manual_seed(5)
 
 device = 'cuda'
 

@@ -2,7 +2,7 @@ import sys
 import os
 import torch
 from torch import optim
-torch.manual_seed(3407)
+torch.manual_seed(5)
 
 device = 'cuda'
 

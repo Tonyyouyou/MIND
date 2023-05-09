@@ -8,7 +8,7 @@ from pathlib import Path
 from torch.utils.data import DataLoader, Dataset, random_split
 
 device = 'cuda'
-torch.manual_seed(3407)
+torch.manual_seed(5)
 
 class MRI_dataset(Dataset):
     def __init__(self, subj, data_type, brain_type, vis_transform, txt_transform, data_dir, csv_file_path):

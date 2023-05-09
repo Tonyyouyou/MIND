@@ -10,9 +10,9 @@ Dataset:
 
 MLP_model:
   channels: 32
-  patch_size: 4
+  patch_size: 2
   dim: 2048
-  depth: 4
+  depth: 2
 
 parameter:
   epoch: 15

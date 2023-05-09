@@ -9,7 +9,7 @@ from lavis.models import load_model_and_preprocess
 from Data.dataset import MRI_dataset, train_test_split, noisy_celing_metric
 
 device = 'cuda'
-torch.manual_seed(3407)
+torch.manual_seed(5)
 
 
 def parse_arguments():
