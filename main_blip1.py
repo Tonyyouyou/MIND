@@ -49,7 +49,7 @@ def main():
     feature_size = train_dataset.mri_dim
     train_loader, eval_loader, test_loader = train_test_split(train_dataset, batch_size)
     
-    MLP_model_class = MLP_model(channels, patch_size, dim, depth, feature_size, (56,48))
+    MLP_model_class = MLP_model(channels, patch_size, dim, depth, feature_size, (32,24))
     predictor = MLP_model_class.init_MLP_Mixer()
 
     nc_class = noisy_celing_metric(data_dir, subj, brain_type)
