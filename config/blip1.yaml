@@ -12,8 +12,8 @@ MLP_model:
   channels: 197
   patch_size: 1
   dim: 2048
-  depth: 4
+  depth: 2
 
 parameter:
   epoch: 20
-  lr: 0.0005
+  lr: 0.001
