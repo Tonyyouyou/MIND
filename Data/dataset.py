@@ -142,8 +142,8 @@ def train_test_split(train_dataset, batch_size, shuffle=False):
     eval_size = int(0.08 * len(train_dataset))
     test_size = len(train_dataset) - train_size - eval_size
 
-    train_data, eval_data, test_data = random_split(train_dataset, [train_size,test_size])
-    train_data = torch.utils.data.ConcatDataset([train_data, eval_data])
+    train_data, eval_data, test_data = random_split(train_dataset, [train_size,eval_size, test_size])
+    #train_data = torch.utils.data.ConcatDataset([train_data, eval_data])
 
     train_loader = DataLoader(train_data, batch_size=batch_size, shuffle=shuffle)
     eval_loader = DataLoader(eval_data, batch_size=batch_size, shuffle=shuffle)
